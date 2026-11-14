@@ -7,8 +7,11 @@ from jinja2 import Environment, select_autoescape
 
 ROOT = Path(__file__).parent
 GENS = ROOT / "Generations"
-OUT_REF = ROOT / "by_reference.html"
-OUT_TEXT = ROOT / "by_text.html"
+OUT_DIR = ROOT / "local"
+OUT_DIR.mkdir(exist_ok=True)
+
+OUT_REF = OUT_DIR / "by_reference.html"
+OUT_TEXT = OUT_DIR / "by_text.html"
 
 env = Environment(autoescape=select_autoescape(default=True))
 
