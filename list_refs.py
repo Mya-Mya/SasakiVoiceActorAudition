@@ -6,7 +6,7 @@ from urllib.parse import quote
 from jinja2 import Environment, select_autoescape
 
 ROOT = Path(__file__).parent
-GENS = ROOT / "Generations"
+GENS = ROOT / "Generations24k"
 OUT_DIR = ROOT / "local"
 OUT_DIR.mkdir(exist_ok=True)
 
@@ -72,7 +72,7 @@ def main() -> None:
                 source=source,
                 seed=seed,
                 part=part,
-                text=full.get(part, part),
+                text=full.get(part, part)[:20],
                 path=quote(wav.relative_to(ROOT).as_posix()),
             )
         )
